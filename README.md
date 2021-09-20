@@ -27,3 +27,30 @@ WHERE message like '%#{キーワード}%' and visible_flag = TRUE ORDER BY id DE
 ```
 http://#{FQDN}/event20210922/#{ユーザディレクトリ}/search.php
 ```
+
+## User Directory割り当て
+
+|  User Directory  |  github account  |
+| ---- | ---- |
+| user0 | 視聴のみの人用 |
+| user1 | - |
+| user2 | - |
+| user3 | - |
+| user4 | - |
+| user5 | - |
+| user6 | - |
+| user7 | - |
+| user8 | - |
+| user9 | - |
+| user10 | - |
+| user11 | - |
+| user12 | - |
+| user13 | - |
+| user14 | - |
+| user15 | - |
+| user16 | - |
+| user17 | - |
+| user18 | - |
+| user19 | - |
+| user20 | - |
+| user21 | - |
