@@ -40,7 +40,7 @@ try {
 			<input type="submit" value="Search" />
 		</form>
 		<hr />
-		<div>「<?= $_POST['keyword'] ?>」の検索結果</div>
+		<div>「<?= htmlspecialchars($_POST['keyword']) ?>」の検索結果</div>
 		<?= $list_html ?>
 		<hr />
 		このファイルの更新日時：<?= date("Y-m-d H:i:s", filemtime(__FILE__)) ?>
