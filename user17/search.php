@@ -5,8 +5,12 @@ $list_html = '';
 try {
 	$list_html = '<table>';
 
-	$stmt = $pdo->query("SELECT id, message, updated_at FROM boards WHERE message like '%" . pg_escape_string($_POST['keyword']) . "%' and visible_flag = TRUE ORDER BY id DESC;");
-
+	$stmt = $pdo->prepare("SELECT id, message, updated_at FROM boards WHERE message like :keyword and visible_flag = TRUE ORDER BY id DESC;");
+	
+        $stmt->bindValue(':keyword', '%' . $_POST['keyword'] . '%');
+	
+        $stmt->execute();
+	
 	if($stmt) {
 		while ($row = $stmt->fetch()) {
 			$list_html .= '<tr><td>' . $row["id"] . '</td><td>' . $row["message"] . '</td><td>' . $row["updated_at"] . '</td></tr>';
