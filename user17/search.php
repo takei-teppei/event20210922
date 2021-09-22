@@ -5,7 +5,7 @@ $list_html = '';
 try {
 	$list_html = '<table>';
 
-	$stmt = $pdo->query("SELECT id, message, updated_at FROM boards WHERE message like '%" . $_POST['keyword'] . "%' and visible_flag = TRUE ORDER BY id DESC;");
+	$stmt = $pdo->query("SELECT id, message, updated_at FROM boards WHERE message like '%" . pg_escape_string($_POST['keyword']) . "%' and visible_flag = TRUE ORDER BY id DESC;");
 
 	if($stmt) {
 		while ($row = $stmt->fetch()) {
@@ -40,7 +40,7 @@ try {
 			<input type="submit" value="Search" />
 		</form>
 		<hr />
-		<div>「<?= $_POST['keyword'] ?>」の検索結果</div>
+		<div>「<?= htmlspecialchars($_POST['keyword']) ?>」の検索結果</div>
 		<?= $list_html ?>
 		<hr />
 		このファイルの更新日時：<?= date("Y-m-d H:i:s", filemtime(__FILE__)) ?>
