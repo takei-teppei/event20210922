@@ -33,7 +33,7 @@ try {
 		<title>検索</title>
 	</head>
 	<body>
-		<h1>DIALOGUE+掲示板 検索ページ</h1>
+		<h1>DIALOGUE+掲示板 検索ページ aaa</h1>
 		検索キーワード：
 		<form method='post' action='./<?= basename(__FILE__) ?>'>
 			<input type="text" name="keyword" size="100" /><br />
