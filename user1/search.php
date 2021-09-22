@@ -5,7 +5,9 @@ $list_html = '';
 try {
 	$list_html = '<table>';
 
-	$stmt = $pdo->query("SELECT id, message, updated_at FROM boards WHERE message like '%" . $_POST['keyword'] . "%' and visible_flag = TRUE ORDER BY id DESC;");
+	$stmt = $pdo->prepare("SELECT id, message, updated_at FROM boards WHERE message like :keyword and visible_flag = TRUE ORDER BY id DESC;");
+	$stmt->bindValue(':keyword', '%' . $_POST['keyword'] . '%');
+	$stmt->execute();
 
 	if($stmt) {
 		while ($row = $stmt->fetch()) {
